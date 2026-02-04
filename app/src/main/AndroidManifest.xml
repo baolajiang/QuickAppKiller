@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.quickappkiller">
+
+    <queries>
+        <package android:name="com.huawei.fastapp" />      <package android:name="com.miui.hybrid" />         <package android:name="com.mi.quickapp" />         <package android:name="com.oppo.hybrid" />         <package android:name="com.heytap.hybrid" />       <package android:name="com.vivo.hybrid" />         <package android:name="com.meizu.flyme.direct" />  <package android:name="com.gionee.ami" />          <package android:name="com.lenovo.hybrid" />       <package android:name="com.nubia.hybrid" />        <package android:name="com.android.settings" />    </queries>
+
+    <application
+            android:allowBackup="true"
+            android:icon="@android:drawable/sym_def_app_icon"
+            android:label="快应用杀手"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+        <activity
+                android:name=".MainActivity"
+                android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

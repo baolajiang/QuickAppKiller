@@ -1,0 +1,22 @@
+# Android Studio
+.gradle/
+.idea/
+build/
+local.properties
+*.iml
+*.iws
+*.ipr
+
+# Gradle
+.gradle-wrapper/
+gradle-wrapper.jar
+
+# Build outputs
+app/build/
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Logs
+*.log
