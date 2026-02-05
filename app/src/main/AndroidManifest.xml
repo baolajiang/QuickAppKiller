@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.quickappkiller">
-
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
     <queries>
         <package android:name="com.huawei.fastapp" />      <package android:name="com.miui.hybrid" />         <package android:name="com.mi.quickapp" />         <package android:name="com.oppo.hybrid" />         <package android:name="com.heytap.hybrid" />       <package android:name="com.vivo.hybrid" />         <package android:name="com.meizu.flyme.direct" />  <package android:name="com.gionee.ami" />          <package android:name="com.lenovo.hybrid" />       <package android:name="com.nubia.hybrid" />        <package android:name="com.android.settings" />    </queries>
 

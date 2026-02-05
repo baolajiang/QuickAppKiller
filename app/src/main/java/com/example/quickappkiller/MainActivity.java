@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         BLACKLIST.put("com.gionee.ami", "金立快应用");
         BLACKLIST.put("com.lenovo.hybrid", "联想快应用");
         BLACKLIST.put("com.nubia.hybrid", "努比亚快应用");
-        BLACKLIST.put("com.android.settings", "系统设置(仅供测试)");
+        //BLACKLIST.put("com.android.settings", "系统设置(仅供测试)");
     }
 
     private TextView tvStatus;
@@ -70,28 +70,63 @@ public class MainActivity extends AppCompatActivity {
         targetPackageList.clear();
 
         PackageManager pm = getPackageManager();
-        // 因为在Manifest里写了queries，这里会自动过滤
+        // 1. 获取手机里所有的软件
         List<PackageInfo> installedPackages = pm.getInstalledPackages(0);
-
+        // 获取自己的包名
+        String myPackageName = getPackageName();
         int count = 0;
         for (PackageInfo pkg : installedPackages) {
             String pkgName = pkg.packageName;
+            // 如果是自己，直接跳过！
+            if (pkgName.equals(myPackageName)) {
+                continue;
+            }
+            // 获取应用的名称（比如 "华为快应用中心"）
+            String appName = pkg.applicationInfo.loadLabel(pm).toString();
 
-            // 如果比对成功
+            // 转为小写方便匹配
+            String lowerPkgName = pkgName.toLowerCase();
+            String lowerAppName = appName.toLowerCase();
+
+            // === 核心修改：判断逻辑 ===
+            boolean isTarget = false;
+            String matchReason = "";
+
+            // 1. 命中已知黑名单
             if (BLACKLIST.containsKey(pkgName)) {
-                String engineName = BLACKLIST.get(pkgName);
-                displayList.add(" 发现目标： " + engineName + "\n 包名：" + pkgName);
+                isTarget = true;
+                matchReason = "【已知引擎】" + BLACKLIST.get(pkgName);
+            }
+            // 2. 名字里包含 "快应用" (比如 "荣耀快应用")
+            else if (appName.contains("快应用")) {
+                isTarget = true;
+                matchReason = "【疑似引擎】名称包含“快应用”";
+            }
+            // 3. 包名里包含关键词 (比如 com.new.fastapp)
+            // 常见的快应用关键词：fastapp, quickapp, hybrid
+            else if (lowerPkgName.contains("fastapp") ||
+                    lowerPkgName.contains("quickapp") ||
+                    lowerPkgName.contains("hybrid")) {
+                // 排除一些误杀，比如 Settings 有时候会包含 hybrid 相关的组件，可以根据需要微调
+                isTarget = true;
+                matchReason = "【疑似引擎】包名包含关键字";
+            }
+
+            // 如果是目标，就加入显示列表
+            if (isTarget) {
+                displayList.add(matchReason + "\n应用名：" + appName + "\n包名：" + pkgName);
                 targetPackageList.add(pkgName);
                 count++;
             }
         }
 
+        // 更新界面提示
         if (count > 0) {
-            tvStatus.setText("扫描完成，发现 " + count + " 个目标");
-            tvStatus.setTextColor(0xFFFF0000); // 红色警告
+            tvStatus.setText("扫描完成，共找出 " + count + " 个快应用相关软件");
+            tvStatus.setTextColor(0xFFFF0000); // 红色
         } else {
-            tvStatus.setText(" 手机很干净，未发现快应用");
-            tvStatus.setTextColor(0xFF00AA00); // 绿色安全
+            tvStatus.setText("非常干净，未发现任何快应用相关软件");
+            tvStatus.setTextColor(0xFF00AA00); // 绿色
         }
         adapter.notifyDataSetChanged();
     }
