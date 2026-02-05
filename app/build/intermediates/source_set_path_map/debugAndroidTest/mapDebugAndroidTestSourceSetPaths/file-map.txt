@@ -1,6 +1,0 @@
-com.example.quickappkiller.test.app-core-1.5.0-0 C:\Users\myo\.gradle\caches\8.13\transforms\436bace3dac475f6037773b331fd0068\transformed\core-1.5.0\res
-com.example.quickappkiller.test.app-annotation-experimental-1.3.0-1 C:\Users\myo\.gradle\caches\8.13\transforms\517ef4f973fec98d8da31324f0934938\transformed\annotation-experimental-1.3.0\res
-com.example.quickappkiller.test.app-androidTest-2 D:\app\QuickAppKiller\app\build\generated\res\resValues\androidTest\debug
-com.example.quickappkiller.test.app-mergeDebugAndroidTestResources-3 D:\app\QuickAppKiller\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.example.quickappkiller.test.app-mergeDebugAndroidTestResources-4 D:\app\QuickAppKiller\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.example.quickappkiller.test.app-debugAndroidTest-5 D:\app\QuickAppKiller\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

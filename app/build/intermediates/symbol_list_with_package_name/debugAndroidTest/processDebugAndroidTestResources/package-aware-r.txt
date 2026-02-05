@@ -1,3 +1,0 @@
-com.example.quickappkiller.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme
