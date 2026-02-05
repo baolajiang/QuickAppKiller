@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         targetPackageList.clear();
 
         PackageManager pm = getPackageManager();
-        // 因为我们在Manifest里写了queries，这里会自动过滤
+        // 因为在Manifest里写了queries，这里会自动过滤
         List<PackageInfo> installedPackages = pm.getInstalledPackages(0);
 
         int count = 0;
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showActionDialog(String packageName) {
-        String msg = "即将跳转到系统设置页。\n\n👉 请点击页面上的【停用】或【卸载】按钮来干掉它！";
+        String msg = "即将跳转到系统设置页。\n\n 请点击页面上的【停用】或【卸载】按钮来干掉它！";
 
         new AlertDialog.Builder(this)
                 .setTitle("准备处理")
