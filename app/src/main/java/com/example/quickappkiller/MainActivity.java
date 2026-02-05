@@ -80,17 +80,17 @@ public class MainActivity extends AppCompatActivity {
             // 如果比对成功
             if (BLACKLIST.containsKey(pkgName)) {
                 String engineName = BLACKLIST.get(pkgName);
-                displayList.add("🚨 发现目标： " + engineName + "\n📦 包名：" + pkgName);
+                displayList.add(" 发现目标： " + engineName + "\n 包名：" + pkgName);
                 targetPackageList.add(pkgName);
                 count++;
             }
         }
 
         if (count > 0) {
-            tvStatus.setText("⚠️ 扫描完成，发现 " + count + " 个目标");
+            tvStatus.setText("扫描完成，发现 " + count + " 个目标");
             tvStatus.setTextColor(0xFFFF0000); // 红色警告
         } else {
-            tvStatus.setText("✅ 手机很干净，未发现快应用");
+            tvStatus.setText(" 手机很干净，未发现快应用");
             tvStatus.setTextColor(0xFF00AA00); // 绿色安全
         }
         adapter.notifyDataSetChanged();
@@ -116,4 +116,13 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "跳转失败，请手动去设置搜索", Toast.LENGTH_SHORT).show();
         }
     }
+    // 每次返回主界面时都重新扫描，确保状态最新
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 每次回到页面时重新扫描，确保状态最新
+        scanEngines();
+    }
+
+
 }
