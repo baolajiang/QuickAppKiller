@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.12.0" type="partial_results">
+    <map id="UnsafeImplicitIntentLaunch">
+            <map id="actionsSent">
+                    <map id="android.settings.APPLICATION_DETAILS_SETTINGS (used to start an activity)">
+                        <location id="0"
+                            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/quickappkiller/MainActivity.java"
+                            line="112"
+                            column="29"
+                            startOffset="3761"
+                            endLine="112"
+                            endColumn="85"
+                            endOffset="3817"/>
+                    </map>
+            </map>
+    </map>
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.example.quickappkiller.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <location id="R.color.black"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="3"
+            column="12"
+            startOffset="62"
+            endLine="3"
+            endColumn="24"
+            endOffset="74"/>
+        <location id="R.color.white"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="4"
+            column="12"
+            startOffset="104"
+            endLine="4"
+            endColumn="24"
+            endOffset="116"/>
+        <location id="R.string.app_name"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="2"
+            column="13"
+            startOffset="24"
+            endLine="2"
+            endColumn="28"
+            endOffset="39"/>
+        <location id="R.style.Base_Theme_QuickAppKiller"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/themes.xml"
+            line="3"
+            column="12"
+            startOffset="107"
+            endLine="3"
+            endColumn="44"
+            endOffset="139"/>
+        <location id="R.style.Theme_QuickAppKiller"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/themes.xml"
+            line="8"
+            column="12"
+            startOffset="336"
+            endLine="8"
+            endColumn="39"
+            endOffset="363"/>
+        <location id="R.xml.backup_rules"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/xml/backup_rules.xml"
+            line="9"
+            column="1"
+            startOffset="327"
+            endLine="14"
+            endColumn="23"
+            endOffset="479"/>
+        <location id="R.xml.data_extraction_rules"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/xml/data_extraction_rules.xml"
+            line="7"
+            column="1"
+            startOffset="222"
+            endLine="20"
+            endColumn="25"
+            endOffset="552"/>
+        <entry
+            name="model"
+            string="color[black(D),white(D)],id[tv_status(U),lv_list_new(U)],layout[activity_main(U)],string[app_name(D)],style[Theme_AppCompat_Light_DarkActionBar(R),Base_Theme_QuickAppKiller(D),Theme_Material3_DayNight_NoActionBar(E),Theme_QuickAppKiller(D)],xml[backup_rules(D),data_extraction_rules(D)];7^8,9^7;;;"/>
+    </map>
+
+</incidents>
